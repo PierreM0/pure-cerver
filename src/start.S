@@ -16,7 +16,9 @@ x:;                          \
         mov rax, n;          \
         jmp _syscall
 
+create_syscall(read, 0)
 create_syscall(write, 1)
+create_syscall(open, 2)
 create_syscall(close, 3)
 create_syscall(socket, 41)
 create_syscall(accept, 43)
