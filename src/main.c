@@ -156,7 +156,9 @@ int main(int argc, char* argv[]) {
     parse_route(header, route);
 
     if ((html_fd = open(route, O_RDONLY, S_IRUSR)) < 0) {
-          char header[] = "HTTP/1.1 404 ERROR\r\n";
+          char header[] = "HTTP/1.1 404 Not Found\r\n"
+          "\r\n"
+          "<h1>404 not found</h1>";
           write(confd, header, strlen(header));
           warn_log("404 error\n");
           write(STDOUT, route, strlen(route));
